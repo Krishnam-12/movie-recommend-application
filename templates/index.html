@@ -1,0 +1,59 @@
+<!doctype html >
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie recommendation system</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+  body {
+    background-image: url("{{ url_for('static', filename='movieimg.png') }}");
+    /* background-size: cover; */
+    /* Adjust background properties as needed */
+  }
+</style>
+
+<body>
+<!-- <body> -->
+  
+  <nav class="mb-3 navbar border-bottom border-bottom-primary" data-bs-theme="dark" style="background-color: rgb(25, 1, 47);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" fill="currentColor" class="bi bi-camera-reels-fill" viewBox="0 0 16 16">
+            <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7z"/>
+          </svg>  Movie Recommendation Application
+      </a>
+    </div>
+  </nav>
+  <!-- <div style="background-image: url(.//movieimg.png); background-size: cover; width: 100; height: 500px ;"> -->
+  
+  <!-- </div> -->
+  <div class="container" style="background-color: white; opacity: 0.97; width:auto;" >
+    <!-- <form action="{{ url_for('recommendation')}}" method="POST"> -->
+    <form action="/recommendation" method="POST">
+      <div class="mb-3" style="padding-top: 8px;">
+        <label for="exampleInputEmail1" class="h4"><b style="font-family:fantasy">Enter Movie name</b></label>
+        <input type="text" class="form-control" id="movies" name="movies" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We provide recommendations based on your entered movie.</div>
+      </div>
+      <!-- <div class="d-grid gap-2"> -->
+        <button type="submit" class="btn btn-dark" style="background-color: rgb(25, 1, 47);" onmouseover="this.style.backgroundColor='rgb(61, 9, 99)';" onmouseout="this.style.backgroundColor='rgb(25, 1, 47)';">Submit</button>
+      <!-- </div> -->
+    </form>
+    <br>
+    <p class="lead" style="color: rgb(4, 8, 50); padding-bottom: 8px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 400;">
+      {{prdiction_text}}
+    </p>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+  </div>
+</body>
+
+</html>
